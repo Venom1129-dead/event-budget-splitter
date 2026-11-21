@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday & Special Event Budget Splitter — Privacy-First Expense Cockpit</title>
+  <meta name="description" content="Instant client-side event & holiday budget calculator, recipient gift tracker, and fair group expense splitter. 100% private, free, and exportable.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-wrapper">
+    <!-- Header & Budget Overview -->
+    <header class="app-header">
+      <div class="header-top">
+        <div class="logo">
+          <span class="logo-badge">EVENT OS</span>
+          <h1>Holiday & Event Budget Splitter</h1>
+        </div>
+        <div class="header-actions">
+          <button id="exportCsvBtn" class="btn btn-outline">📥 Export CSV</button>
+          <button id="resetBtn" class="btn btn-ghost">Reset Data</button>
+        </div>
+      </div>
+      <p class="subtitle">Client-Side Budget Allocation, Recipient Gift Tracker & Fair Expense Splitter</p>
+    </header>
+
+    <!-- Top Metric Cards -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-title">TARGET BUDGET</span>
+        <div class="budget-input-wrapper">
+          <span class="currency-symbol">$</span>
+          <input type="number" id="targetBudgetInput" value="1500" min="0" step="10">
+        </div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-title">ACTUAL SPENT</span>
+        <span id="actualSpentVal" class="metric-val primary">$0.00</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-title">REMAINING FUNDS</span>
+        <span id="remainingFundsVal" class="metric-val success">$1,500.00</span>
+      </div>
+      <div class="metric-card">
+        <span class="metric-title">BUDGET USED</span>
+        <span id="budgetPercentVal" class="metric-val">0.0%</span>
+      </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar-bg">
+        <div id="progressBarFill" class="progress-bar-fill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Main Content: Tabs -->
+    <main class="dashboard-body">
+      <!-- Section 1: Item & Gift Expense Ledger -->
+      <section class="card">
+        <div class="card-header">
+          <h2>🎁 Event & Gift Expense Ledger</h2>
+          <button id="addItemBtn" class="btn btn-primary">+ Add Item / Gift</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Item / Recipient</th>
+                <th>Category</th>
+                <th>Target ($)</th>
+                <th>Actual ($)</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="itemsTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 2: Group Expense Splitter -->
+      <section class="card">
+        <div class="card-header">
+          <h2>👥 Fair Group Expense Splitter</h2>
+          <span class="card-badge">Instant Settlement</span>
+        </div>
+
+        <div class="splitter-grid">
+          <div class="splitter-inputs">
+            <div class="input-group">
+              <label for="groupMembersInput">Group Members (Comma-separated):</label>
+              <input type="text" id="groupMembersInput" value="Alex, Jordan, Taylor, Sam">
+            </div>
+            <div class="input-group">
+              <label for="sharedCostInput">Total Shared Group Cost ($):</label>
+              <input type="number" id="sharedCostInput" value="480" min="0" step="1">
+            </div>
+          </div>
+          
+          <div class="splitter-results">
+            <div class="split-card">
+              <span class="split-label">Per-Person Share:</span>
+              <span id="perPersonShareVal" class="split-amount">$120.00</span>
+            </div>
+            <p id="splitSummaryText" class="split-desc">4 members splitting $480.00 equally.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Monetization CTA Banner -->
+    <footer class="app-footer">
+      <div class="cta-banner">
+        <div class="cta-content">
+          <span class="pill">ORGANIZER PRO</span>
+          <h3>Want the complete All-In-One Notion & Excel Event Planner?</h3>
+          <p>Includes guest list RSVP tracking, vendor contract management, automated seat mapping, and holiday dinner menu calculators.</p>
+        </div>
+        <div class="cta-action">
+          <a href="https://gumroad.com" target="_blank" rel="noopener noreferrer" class="btn btn-cta">
+            Get Planner Vault — $9
+          </a>
+          <span class="guarantee">Instant Download • Free Lifetime Updates</span>
+        </div>
+      </div>
+      <p class="copyright">Autonomous Income Factory Asset #12 • Zero-Capital Open Web Tool</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
